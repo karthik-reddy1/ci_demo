@@ -11,14 +11,14 @@ pipeline {
         bat """
         if exist out rmdir /s /q out
         mkdir out
-        javac -d out src\\hello\\Hello.java
+        javac -d out src\\hello\\*.java
         """
       }
     }
     stage('Run') {
       steps {
         bat """
-        java -cp out hello.Hello
+        java -cp out hello.GoodBye
         echo Build_OK > artifact.txt
         """
       }
